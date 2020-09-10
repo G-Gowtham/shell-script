@@ -19,7 +19,7 @@ web_content()
     sudo chmod 755 /var/www/html;
 }
 
-# installing LAMP stack
+# Installing LAMP stack
 
 install()
 {
@@ -74,17 +74,36 @@ stop()
     echo -e "\nStopped LAMP services..........................................\n";
 }
 
+#UnInstalling LAMP services
+
+uninstall()
+{
+    if test -f "/etc/debian_version"; then
+        echo -e "\nIt is a Debian distro..................................\n";
+        sudo apt remove apache2 -y;
+        sudo apt remove php libapache2-mod-php php-mysql -y;
+        sudo apt remove mariadb-server -y;
+    else
+        echo -e "\nIt is a Redhat Distro..................................\n";
+        sudo yum remove httpd -y;
+        sudo yum remove mariadb-server -y;
+        sudo yum remove php php-common php-mcrypt php-cli php-mysql -y;
+    fi
+
+    echo -e "LAMP stack Uninstalled successfully!..........................\n";
+}
+
 lamp()
 {
     # Env vs CMD variables priority check
 
-    def="4"
+    def="5"
 
     if [ -n "$1" ]; then
         def="$1";
     fi
 
-    echo -e "Press 1 - To Install LAMP\nPress 2 - To Start LAMP\nPress 3 - To Stop LAMP\n";
+    echo -e "Press 1 - To Install LAMP\nPress 2 - To Start LAMP\nPress 3 - To Stop LAMP\nPress 4 - To UnInstall\n";
     read -p "Enter your choice : " choice;
 
     if [ "$choice" != "" ]; then
@@ -102,6 +121,9 @@ lamp()
     elif [ "$def" == "3" ];
     then
         stop;
+    elif [ "$def" == "4" ];
+    then
+        uninstall;
     else
         echo -e "\nThe options are not selected";
     fi
