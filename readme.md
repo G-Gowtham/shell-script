@@ -1,4 +1,6 @@
-# lamp.sh :
+# Shell-Script files:
+
+### lamp.sh :
 
 * Script to install,uninstall,start and stop LAMP services in Debian and RedHat distros. 
 
