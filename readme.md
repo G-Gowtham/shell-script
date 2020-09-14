@@ -16,7 +16,7 @@
 
 #### Usage 3:
 
-* You can also directly call the functions "./lamp.sh install", "./lamp.sh uninstall", "./lamp.sh start", "./lamp.sh stop", 
+* You can also directly call the functions "./lamp.sh install", "./lamp.sh uninstall", "./lamp.sh start", "./lamp.sh stop" to do the tasks. 
 
 #### Usage 4 :
 * It also consist of mysql backup to /opt directory and web content updation features.
