@@ -42,7 +42,9 @@ install()
 
 start()
 {
-    install
+    
+    #install
+
     echo -e "\nChecked/Installed the LAMP stack...........................\n";
 
     if test -f "/etc/debian_version"; then
