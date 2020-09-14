@@ -43,8 +43,6 @@ install()
 start()
 {
     
-    #install
-
     echo -e "\nChecked/Installed the LAMP stack...........................\n";
 
     if test -f "/etc/debian_version"; then
@@ -103,10 +101,6 @@ lamp()
 
     def="5"
 
-    if [ -n "$1" ]; then
-        def="$1";
-    fi
-
     echo -e "Press 1 - To Install LAMP\nPress 2 - To Start LAMP\nPress 3 - To Stop LAMP\nPress 4 - To UnInstall\n";
     read -p "Enter your choice : " choice;
 
@@ -116,16 +110,16 @@ lamp()
 
     #Calling necessary functions according to the choice & 'def' means deafult 
 
-    if [ "$def" == "1" ];
+    if [ "$def" == "1" -o "$1" == "-i" ];
     then
         install;
-    elif [ "$def" == "2" ];
+    elif [ "$def" == "2" -o "$1" == "-r" ];
     then
         start;
-    elif [ "$def" == "3" ];
+    elif [ "$def" == "3" -o "$1" == "-s" ];
     then
         stop;
-    elif [ "$def" == "4" ];
+    elif [ "$def" == "4" -o "$1" == "-u" ];
     then
         uninstall;
     else
