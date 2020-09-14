@@ -93,6 +93,8 @@ uninstall()
     echo -e "LAMP stack Uninstalled successfully!..........................\n";
 }
 
+# Root function for calling all the function
+
 lamp()
 {
     # Env vs CMD variables priority check
